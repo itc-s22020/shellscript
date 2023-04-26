@@ -1,0 +1,32 @@
+#!/bin/bash
+ESC=$(printf '\033')
+
+#email
+while :
+	do
+		read -p "${ESC}[1;39mPress setting email: ${ESC}[m" email
+		printf "${ESC}[1;35mEntered email: $email${ESC}[m\n"
+		if [[ ${email} =~ ^.+@.+ ]]; then
+			git config --global user.email "$email"
+			break
+		else
+			printf "${ESC}[1;31mError : Please Input 'sample@sample.com' email format${ESC}[m\n"
+		fi
+	done
+
+
+#username
+read -p "${ESC}[1;39mPress setting username: ${ESC}[m" username
+printf "${ESC}[1;35mEntered username: $username${ESC}[m\n"
+git config --global user.name "$username"
+
+
+#editor
+read -p "${ESC}[1;39mchange editor to vim?(y/n): ${ESC}[m" editer
+case "$editer" in
+	[yY]) git config --global core.editer vim
+		printf "${ESC}[1;35mvim selected.${ESC}[m\n";;
+	[nN]) git config --global core.editer nano
+		printf "${ESC}[1;35mnano selected.${ESC}[m\n";;
+	*) printf "${ESC}[1;35mNo changed.${ESC}[m\n"
+esac
