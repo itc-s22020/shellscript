@@ -10,4 +10,4 @@ echo "
 export PATH=\$PATH:$dirpath/git-shell
 # ^ shellscript-path ^
 " >> ~/.bashrc
-printf "${ESC}[1;35source ~/.bashrcを実行もしくはshellを再起動してください${ESC}[m\n"
+printf "${ESC}[1;35msource ~/.bashrcを実行もしくはshellを再起動してください${ESC}[m\n"
