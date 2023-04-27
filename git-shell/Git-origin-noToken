@@ -15,7 +15,8 @@ do
 done
 
 read -sp "${ESC}[1;39mPress set token: ${ESC}[m" token
-printf "${ESC}[1;35mEntered token: *****[m\n"
+printf "${ESC}\n[1;35mEntered token: *****${ESC}[m\n"
 
+git remote add origin "https://${username}:${token}@github.com${url:18}"
 git remote set-url origin "https://${username}:${token}@github.com${url:18}"
-printf "\n${ESC}[1;36morigin set : https://${username}:token@github.com${url:18}${ESC}[m\n"
+printf "${ESC}[1;33morigin set : https://${username}:token@github.com${url:18}${ESC}[m\n"
