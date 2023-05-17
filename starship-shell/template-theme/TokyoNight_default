@@ -2,7 +2,7 @@
 ESC=$(printf '\033')
 
 read -p "${ESC}[1;39mPress setting name: ${ESC}[m" name
-
+mkdir ~/.config 2> /dev/null
 echo "
 format = \"\"\"
 [░▒▓](#a3aed2)\
