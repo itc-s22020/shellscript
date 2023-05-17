@@ -1,19 +1,18 @@
 #!/bin/bash
 ESC=$(printf '\033')
 
-sudo apt install cmake
+sudo apt -y install cmake
 sudo apt -y install rust-all
-sudo apt install cargo libssl-dev
+sudo apt -y install cargo libssl-dev
 
 cp --backup=t ~/.bashrc ../.bashrc-backup/
 echo "
 # v starship-setting v
-export PATH="$PATH:$HOME/.cargo/bin"
-eval "$(starship init bash)"
+export PATH=\"\$PATH:\$HOME/.cargo/bin\"
+eval \"\$(starship init bash)\"
 # ^ starship-setting ^
 " >> ~/.bashrc
-printf "${ESC}[1;35msource ~/.bashrcを実行もしくはshellを再起動してください${ESC}[m\n"
-
 cargo install starship
+printf "${ESC}[1;35msource ~/.bashrcを実行もしくはshellを再起動してください${ESC}[m\n"
 
 
