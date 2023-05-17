@@ -8,6 +8,7 @@ sed -ni '/# v shellscript-path v/,/# ^ shellscript-path ^/!p' ~/.bashrc #書き�
 echo "
 # v shellscript-path v
 export PATH=\$PATH:$dirpath/git-shell
+export PATH=\$PATH:$dirpath/general-shell
 # ^ shellscript-path ^
 " >> ~/.bashrc
 printf "${ESC}[1;35msource ~/.bashrcを実行もしくはshellを再起動してください${ESC}[m\n"
