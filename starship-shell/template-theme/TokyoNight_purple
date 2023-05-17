@@ -4,18 +4,18 @@ ESC=$(printf '\033')
 read -p "${ESC}[1;39mPress setting name: ${ESC}[m" name
 mkdir ~/.config 2> /dev/null
 
-startcolor="#a3aed2"
+startcolor="#aa55ff"
 
-nameFg="#090c0c"
-nameBg="#a3aed2"
-dirFg="#e3e5e5"
-dirBg="#769ff0"
-gitFg="#769ff0"
-gitBg="#394260"
+nameFg="#002b55"
+nameBg="#bf80ff"
+dirFg="#0e0e47"
+dirBg="#aa55ff"
+gitFg="#000080"
+gitBg="#952bff"
 pgFg="#769ff0"
-pgBg="#212736"
+pgBg="#6a00d5"
 timeFg="#a0a9cb"
-timeBg="#1d2230"
+timeBg="#400080"
 
 echo "
 format = \"\"\"
