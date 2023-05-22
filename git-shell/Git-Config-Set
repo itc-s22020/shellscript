@@ -24,9 +24,9 @@ git config --global user.name "$username"
 #editor
 read -p "${ESC}[1;39mchange editor to vim?(y/n): ${ESC}[m" editer
 case "$editer" in
-	[yY]) git config --global core.editer vim
+	[yY]) git config --global core.editor vim
 		printf "${ESC}[1;35mvim selected.${ESC}[m\n";;
-	[nN]) git config --global core.editer nano
+	[nN]) git config --global core.editor nano
 		printf "${ESC}[1;35mnano selected.${ESC}[m\n";;
 	*) printf "${ESC}[1;35mNo changed.${ESC}[m\n"
 esac
