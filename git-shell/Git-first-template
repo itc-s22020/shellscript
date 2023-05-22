@@ -1,0 +1,23 @@
+#!/bin/bash
+ESC=$(printf '\033')
+
+git branch -M main
+read -p "${ESC}[1;39mPress set username: ${ESC}[m" username
+printf "${ESC}[1;35mEntered username: ${username}${ESC}[m\n"
+while :
+do
+        read -p "${ESC}[1;39mPress set github URL: ${ESC}[m" url
+        printf "${ESC}[1;35mEntered url: $url${ESC}[m\n"
+        if [[ ${url} =~ ^https://github.com/.+\.git$ ]]; then
+                break
+        else
+                printf "${ESC}[1;31mError : Please Input 'https://github.com/sample/sample.git' URL format${ESC}[m\n"
+        fi
+done
+
+read -sp "${ESC}[1;39mPress set token: ${ESC}[m" token
+printf "${ESC}\n[1;35mEntered token: *****${ESC}[m\n"
+
+git remote add origin "https://${username}:${token}@github.com${url:18}"
+git remote set-url origin "https://${username}:${token}@github.com${url:18}"
+printf "${ESC}[1;33morigin set : https://${username}:token@github.com${url:18}${ESC}[m\n"
