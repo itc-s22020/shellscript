@@ -1,0 +1,5 @@
+#!/bin/bash
+ESC=$(printf '\033')
+
+starship preset bracketed-segments -o ~/.config/starship.toml
+
