@@ -1,0 +1,4 @@
+#!/bin/bash
+
+SOURCE_FILE=$1
+chmod 755 $SOURCE_FILE
