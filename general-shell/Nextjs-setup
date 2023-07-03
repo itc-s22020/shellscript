@@ -1,0 +1,9 @@
+#!/bin/bash
+sudo apt update
+sudo apt -y install npm nodejs 
+sudo npm install yarn -g
+sudo npm install n -g
+sudo n stable
+sudo apt purge -y nodejs npm
+sudo npm install create-next-app -g
+
