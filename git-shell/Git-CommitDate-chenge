@@ -1,0 +1,30 @@
+#!/bin/bash
+ESC=$(printf '\033')
+
+PS3="${ESC}[1;39mweek > ${ESC}[m"
+select week in 'Mon' 'Tue' 'Wed' 'Thu' 'Fri' 'Sat' 'Sun'
+do
+
+	echo "${ESC}[1;35mselected > $week${ESC}[m"
+	read -p "${ESC}[1;39mPress set date : ${ESC}[m" date
+	printf "${ESC}[1;35mEntered date > $date${ESC}[m\n"
+
+	PS3="${ESC}[1;39mmonth > ${ESC}[m"
+
+	select month in 'Jan' 'Feb' 'Mar' 'Apr' 'May' 'Jun' 'Jul' 'Aug' 'Sep' 'Oct' 'Nov' 'Dec'
+	do
+		echo "${ESC}[1;35mselected > $month${ESC}[m"
+
+		printf "${ESC}[1;35mEntered date > $date${ESC}[m\n"
+		read -p "${ESC}[1;39mPress set year (format yyyy) : ${ESC}[m" year
+		printf "${ESC}[1;35mEntered year > $year${ESC}[m\n"
+		read -p "${ESC}[1;39mPress set time (format HH:MM:SS) : ${ESC}[m" time
+		printf "${ESC}[1;35mEntered time > $time${ESC}[m\n"
+
+		git commit --amend --date="$week $month $date $time $year +0900"
+		git rebase HEAD~1 --committer-date-is-author-date
+		git log --pretty=fuller
+		break
+	done
+	break
+done
