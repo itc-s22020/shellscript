@@ -15,7 +15,7 @@ do
 	do
 		echo "${ESC}[1;35mselected > $month${ESC}[m"
 
-		printf "${ESC}[1;35mEntered date > $date${ESC}[m\n"
+		printf "${ESC}[1;35mEntered month > $month${ESC}[m\n"
 		read -p "${ESC}[1;39mPress set year (format yyyy) : ${ESC}[m" year
 		printf "${ESC}[1;35mEntered year > $year${ESC}[m\n"
 		read -p "${ESC}[1;39mPress set time (format HH:MM:SS) : ${ESC}[m" time
