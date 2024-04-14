@@ -27,6 +27,16 @@ select week in 'Mon' 'Tue' 'Wed' 'Thu' 'Fri' 'Sat' 'Sun'; do
 
         timezone="+0900"  # 日本の標準時間
 
+        if git diff-index --quiet HEAD --; then
+            echo "No changes to commit."
+        else
+            git commit -am "Automatic commit before amending date"
+            if [ $? -ne 0 ]; then
+                echo "Failed to commit changes."
+                exit 1
+            fi
+        fi
+
         git commit --amend --date="$week $month $date $time $year $timezone"
         if [ $? -eq 0 ]; then
             git rebase HEAD~1 --committer-date-is-author-date
