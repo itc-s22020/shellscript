@@ -25,7 +25,9 @@ select week in 'Mon' 'Tue' 'Wed' 'Thu' 'Fri' 'Sat' 'Sun'; do
             exit 1
         fi
 
-        timezone="+0900"  # 日本の標準時間
+        timezone="+0900"
+        new_date="$week $month $date $time $year $timezone"
+        export GIT_COMMITTER_DATE="$new_date"
 
         current_message=$(git log -1 --pretty=%B)
 
@@ -39,7 +41,7 @@ select week in 'Mon' 'Tue' 'Wed' 'Thu' 'Fri' 'Sat' 'Sun'; do
             fi
         fi
 
-        git commit --amend --no-edit --date="$week $month $date $time $year $timezone"
+        git commit --amend --no-edit --date="$new_date"
         if [ $? -eq 0 ]; then
             git rebase HEAD~1 --committer-date-is-author-date
             git log --pretty=fuller
